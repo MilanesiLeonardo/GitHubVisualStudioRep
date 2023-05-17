@@ -107,7 +107,7 @@ def gui(user):
 f"""
 +---------------------------------------------------------------+
 
-            Progetto “RAEE”
+    Progetto “RAEE”
 
     Benvenuto {user}, 
     Inserire la tipologia di
@@ -122,9 +122,9 @@ f"""
 f"""
 +---------------------------------------------------------------+
 
-    {user}, il tuo rifiuto appartiene alla categoria R1 
-
-    
+    {user}, il tuo rifiuto viene smaltito con l'ausilio
+    delle tecnologie relative categoria R1 
+ 
 """)
             sleep(3)
         elif r2(rifiuto):
@@ -132,8 +132,8 @@ f"""
 f"""
 +---------------------------------------------------------------+
 
-    {user}, il tuo rifiuto appartiene alla categoria R2 
-
+    {user}, il tuo rifiuto viene smaltito con l'ausilio
+    delle tecnologie relative categoria R2 
 
 """)
             sleep(3)
@@ -142,8 +142,8 @@ f"""
 f"""
 +---------------------------------------------------------------+
 
-    {user}, il tuo rifiuto appartiene alla categoria R3 
-
+    {user}, il tuo rifiuto viene smaltito con l'ausilio
+    delle tecnologie relative categoria R3
 
 """)
             sleep(3)
@@ -152,8 +152,8 @@ f"""
 f"""
 +---------------------------------------------------------------+
 
-    {user}, il tuo rifiuto appartiene alla categoria R4
-
+    {user}, il tuo rifiuto viene smaltito con l'ausilio
+    delle tecnologie relative categoria R4
 
 """)
             sleep(3)
@@ -163,8 +163,8 @@ f"""
 f"""
 +---------------------------------------------------------------+
 
-    {user}, il tuo rifiuto appartiene alla categoria R5
-
+    {user}, il tuo rifiuto viene smaltito con l'ausilio
+    delle tecnologie relative categoria R5
 
 """)
             sleep(3)
@@ -181,7 +181,10 @@ f"""
 """)
             
             sleep(6)
-        
-    
+        continuare = input("Desideri continuare? (s/n): ")
+        if continuare.lower() == "n":
+            break
+        sleep(2)
+
 user = input("Inserire un nome utente: ")
 gui(user)
