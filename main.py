@@ -110,8 +110,7 @@ f"""
     Progetto “RAEE”
 
     Benvenuto {user}, 
-    Inserire la tipologia di
-    apparecchio elettronico elettrico
+    Inserire l'apparecchio elettronico o elettrico
     da smaltire (Deve essere singolare e non abbreviato es.Frigo):
     
     """)
