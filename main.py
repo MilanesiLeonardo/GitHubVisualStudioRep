@@ -1,6 +1,7 @@
 import os
 from time import sleep
 
+
 def r1(rifiuto):
     listaR1=[
     "frigorifero",
@@ -100,6 +101,21 @@ def r5(rifiuto):
         return True
     return False
 
+def normativa(user):
+    os.system('cls')
+    print(f"""
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                Benvenuto {user} nel progetto RAE                                                                           
+    La normativa individua 5 raggruppamentidi Raee in base alle tecnologie necessarie al loro corretto trattamento:
+                    
+    \tR1)-Grande bianco freddo -grandi elettrodomestici per la refrigerazione: frigoriferi, congelatori, condizionatori
+    \tR2)-Grande bianco non freddo -grandi elettrodomestici come lavatrici, lavastoviglie.
+    \tR3)-TV Monitor a tubo catodico
+    \tR4)-Elettronica di consumo, Telecomunicazioni, Informatica, piccoli elettrodomestici, elettroutensili, giocattoli, apparecchi di illuminazione, dispositivi medici.
+    \tR5)-Sorgenti luminose a scarica: lampade fluorescenti e sorgenti luminose compatte. 
+    """)
+    input("\nPremi qualsiasi tasto per tornare al programma principale: ")
+
 def gui(user):
     while True:
         os.system('cls')
@@ -110,8 +126,10 @@ f"""
     Progetto “RAEE”
 
     Benvenuto {user}, 
-    Inserire l'apparecchio elettronico o elettrico
-    da smaltire (Deve essere singolare e non abbreviato es.Frigo):
+    Inserire un singolo apparecchio elettronico o elettrico
+    da smaltire o \"normativa\" per visualizzare
+    i criteri di smaltimento
+    (Deve essere singolare e non abbreviato es.Frigo):
     
     """)
         rifiuto = input().lower()
@@ -167,6 +185,8 @@ f"""
 
 """)
             sleep(3)
+        elif rifiuto == "normativa":
+            normativa(user)
         else:
             print(
 f"""
@@ -186,4 +206,5 @@ f"""
         sleep(2)
 
 user = input("Inserire un nome utente: ")
+
 gui(user)
