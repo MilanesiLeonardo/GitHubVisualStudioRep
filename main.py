@@ -180,7 +180,7 @@ f"""
 """)
             
             sleep(6)
-        continuare = input("Desideri continuare? (s/n): ")
+        continuare = input("Desideri continuare? per uscire digitare \"n\": ")
         if continuare.lower() == "n":
             break
         sleep(2)
