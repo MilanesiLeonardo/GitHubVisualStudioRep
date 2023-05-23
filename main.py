@@ -1,102 +1,42 @@
 import os
 from time import sleep
 
+file = open("rifiuti.txt", "r")
+stringa = ""
+
+for line in file:
+  stringa = stringa + line.strip()
+
+rifiuti = stringa.split(";")
+file.close()
+listaR1 = rifiuti[0].split(',')
+listaR2 = rifiuti[1].split(',')
+listaR3 = rifiuti[2].split(',')
+listaR4 = rifiuti[3].split(',')
+listaR5= rifiuti[4].split(',')
 
 def r1(rifiuto):
-    listaR1=[
-    "frigorifero",
-    "congelatore",
-    "condizionatore",
-    "deumidificatore",
-    "pompa di calore",
-    "radiatore a olio",
-    "asciugatrice con pompa di calore"]
     if rifiuto in listaR1:
         return True
     return False
 
 
 def r2(rifiuto):
-    listaR2 = [
-    "lavatrice",
-    "lavastoviglie",
-    "apparecchio di cottura",
-    "stufa elettrica",
-    "piastra riscaldante"]
     if rifiuto in listaR2:
         return True
     return False
 
 def r3(rifiuto):
-    listaR3 = [ 
-    "televisore",
-    "schermo",
-    "schermo lcd",
-    "monitor",
-    "laptop",
-    "notebook"
-    ]
     if rifiuto in listaR3:
         return True
     return False
 
 def r4(rifiuto):
-    listaR4 = [
-    "mainframe",
-    "aspirapolvere",
-    "scopa meccanica",
-    "macchina per cucire",
-    "apparecchio di illuminazione",
-    "forno a microonde",
-    "ventilatore",
-    "ferro da stiro",
-    "tostapane",
-    "bollitore",
-    "sveglia",
-    "orologio",
-    "bilancia",
-    "calcolatrice",
-    "apparecchio radio",
-    "videocamera", 
-    "videoregistratore",
-    "giocattolo elettrico",
-    "giocattolo elettronico",
-    "rilevatore di fumo", 
-    "regolatore di calore", 
-    "termostato",
-    "apparecchio di cottura",
-    "stufa elettrica",
-    "piastra riscaldante",
-    "friggitrice", 
-    "frullatore", 
-    "macina caffè",
-    "asciugacapelli", 
-    "spazzolino da denti", 
-    "rasoio", 
-    "telefono",
-    "cellulare",
-    "navigatore satellitare",
-    "calcolatrice",
-    "router",
-    "pc",
-    "stampante",
-    "telefono"
-]
     if rifiuto in listaR4:
         return True
     return False
 
 def r5(rifiuto):
-    listaR5 = [    
-    "tubi fluorescenti",
-    "lampade fluorescenti compatte",
-    "lampade fluorescenti",
-    "lampade a scarica ad alta densità",
-    "lampade a vapori di sodio ad alta pressione",
-    "lampade ad algoritmo metallico",
-    "lampade a vapori di sodio a bassa pressione",
-    "led"
-    ]
     if rifiuto in listaR5:
         return True
     return False
@@ -114,7 +54,69 @@ def normativa(user):
     \tR4)-Elettronica di consumo, Telecomunicazioni, Informatica, piccoli elettrodomestici, elettroutensili, giocattoli, apparecchi di illuminazione, dispositivi medici.
     \tR5)-Sorgenti luminose a scarica: lampade fluorescenti e sorgenti luminose compatte. 
     """)
-    input("\nPremi qualsiasi tasto per tornare al programma principale: ")
+
+def manuale(user):
+    os.system('cls')
+    scelta=input("""
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+    
+    Scegli tra quali di queste categorie appartiene il tuo elettrodomestico (Inserire un numero fra quelli indicati qui sotto):
+
+    1) Grandi elettrodomestici;
+    2) Piccoli elettrodomestici;
+    3) Apparecchiature informatiche e per telecomunicazioni;
+    4) Apparecchiature di consumo e pannelli fotovoltaici;
+    5) Apparecchiature di illuminazione;
+    6) Utensili elettrici  ed elettronici (ad eccezione degli utensili industriali fissi di grandi dimensioni);
+    7) Giocattoli e apparecchiature per il tempo libero e lo sport;
+    8) Dispositivi medici (ad eccezione di tutti i prodotti impiantati ed infettati;
+    9) Strumenti di monitoraggio e di controllo;
+    10) Distributori automatici.
+    11) TV Monitor a tubo catodico
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+         
+
+""")
+    sleep(2)
+    os.system('cls')    
+    if scelta == "1" or scelta == "10":
+        scelta=input("Se il tuo grande elettrodomestico è freddo? (s/n): ")
+        if scelta =="s":
+            print(f"""
++---------------------------------------------------------------+
+    {user}, il tuo rifiuto viene smaltito con l'ausilio
+    delle tecnologie relative categoria R1          
+      
+""")
+        else:
+            print(f"""
++---------------------------------------------------------------+
+    {user}, il tuo rifiuto viene smaltito con l'ausilio
+    delle tecnologie relative categoria R2         
+      
+""")
+                      
+    elif (scelta =="2") or (scelta == "3") or (scelta == "4") or (scelta =="6") or (scelta=="7")  or (scelta=="8"):
+            print(f"""
++---------------------------------------------------------------+
+    {user}, il tuo rifiuto viene smaltito con l'ausilio
+    delle tecnologie relative categoria R4
+      
+""")        
+    elif (scelta == "11"):
+        print(f"""
++---------------------------------------------------------------+
+    {user}, il tuo rifiuto viene smaltito con l'ausilio
+    delle tecnologie relative categoria R3
+      
+""")
+          
+    else:
+        print(f"""
++---------------------------------------------------------------+
+    {user}, il tuo rifiuto viene smaltito con l'ausilio
+    delle tecnologie relative categoria R5
+      
+""")  
+
 
 def gui(user):
     while True:
@@ -195,10 +197,21 @@ f"""
     {user}, il tuo rifiuto non appartiene a nessuna categoria
     controlla che l'inserimento sia corretto e rispetti
     tutte le condizioni elencate
+    Vuoi provare ad trovare la categoria di appartenenza
+    manualmente? (s/n)
 
-+---------------------------------------------------------------+
-""")
++---------------------------------------------------------------+            
             
+            """)
+            scelta=input()
+            match scelta:
+                case "s":
+                    manuale(user)
+                case "n":
+                    continue
+                case _:
+                    continue
+                    
             sleep(6)
         continuare = input("Desideri continuare? per uscire digitare \"n\": ")
         if continuare.lower() == "n":
@@ -207,4 +220,4 @@ f"""
 
 user = input("Inserire un nome utente: ")
 
-gui(user)
+gui(user.capitalize())
