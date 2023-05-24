@@ -218,6 +218,5 @@ f"""
             break
         sleep(2)
 
-user = input("Inserire un nome utente: ")
 
-gui(user.capitalize())
+
