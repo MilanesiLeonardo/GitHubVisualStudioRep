@@ -3,17 +3,20 @@ from tkinter import ttk
 from time import sleep
 import main1
 
-
-
 def show(button):
     try:
-        if (entry.get()).strip() != "" and len(entry.get()) >= 3:
+        if (entry.get()).strip() != "" and len(entry.get().strip()) >= 3:
+            global label1
             global label2
             global label3
+            global label4
             global entry1
+            nickname1 = ""
+            for words in entry.get().split():
+                nickname1 = nickname1 + " " + words.capitalize()
             label2 = Label(root, text=f"""
     --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                                                                    Benvenuto {entry.get().capitalize()} nel progetto RAE                                                                           
+                                                                    Benvenuto{nickname1} nel progetto RAE                                                                           
 
 Grazie per averci contattato per il corretto smaltimento del tuo apparecchio elettronico o elettrico. 
 Per poterti fornire informazioni dettagliate sul criterio di smaltimento corretto, 
@@ -57,7 +60,7 @@ def show_text(text):
         
         label4.pack()
         label4.after(5000, lambda: (label4.destroy(), entry1.configure(state='normal'), entry1.focus()))
-
+            
 
 root = Tk()
 root.iconbitmap('icon.ico')
@@ -72,17 +75,4 @@ entry.focus()
 enterCom = root.bind('<Return>', show)
 text = entry.get()
 entry.pack()
-
 root.mainloop()
-
-
-
-
-
-
-
-
-
-
-
-
