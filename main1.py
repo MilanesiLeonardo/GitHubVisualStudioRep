@@ -45,7 +45,7 @@ def normativa(user):
     os.system('cls')
     print(f"""
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                                                                Benvenuto {user} nel progetto RAE                                                                           
+                                                                Benvenuto {user} nel progetto RAEE                                                                           
     La normativa individua 5 raggruppamentidi Raee in base alle tecnologie necessarie al loro corretto trattamento:
                     
     \tR1)-Grande bianco freddo -grandi elettrodomestici per la refrigerazione: frigoriferi, congelatori, condizionatori
