@@ -3,8 +3,6 @@ from tkinter import ttk
 from time import sleep
 import main1
 
-
-
 def show(button):
     if (entry.get()).strip() != "" and len(entry.get().strip()) >= 3:
         global label1
